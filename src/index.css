@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 5.9% 10%;
 
-    --primary: 2 76% 82%;
+    --primary: 142 76% 36%;
     --primary-foreground: 240 5.9% 10%;
 
     --secondary: 39 43% 83%;
@@ -37,7 +37,7 @@
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 2 76% 82%;
+    --sidebar-primary: 142 76% 36%;
     --sidebar-primary-foreground: 240 5.9% 10%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
@@ -55,7 +55,7 @@
     --popover: 225 7% 14%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 2 56% 62%;
+    --primary: 142 56% 32%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 39 23% 53%;
@@ -82,17 +82,21 @@
   }
 
   body {
-    @apply bg-peach-light text-foreground antialiased min-h-screen;
+    @apply bg-beige-light text-foreground antialiased min-h-screen;
   }
 }
 
 @layer components {
   .dashboard-gradient {
-    @apply bg-gradient-to-br from-peach-light to-beige-light;
+    @apply bg-gradient-to-br from-beige-light to-green-50;
   }
   
   .card-shadow {
-    @apply shadow-md hover:shadow-lg transition-shadow duration-300;
+    @apply shadow-md transition-all duration-300;
+  }
+  
+  .card-shadow:hover {
+    @apply shadow-lg transform -translate-y-1;
   }
   
   .truncate-2-lines {
@@ -100,5 +104,18 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  .hover-3d {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-3d:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-green-100;
   }
 }

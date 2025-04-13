@@ -73,6 +73,18 @@ export default {
 					DEFAULT: '#E2D1C3',
 					dark: '#D4C4B7'
 				},
+				green: {
+					50: '#F2FCE2',
+					100: '#E4F8C6',
+					200: '#C8EF98',
+					300: '#A3E167',
+					400: '#7FCC40',
+					500: '#5DA626',
+					600: '#4A851F',
+					700: '#396419',
+					800: '#294412',
+					900: '#19290B',
+				},
 				neutral: {
 					DEFAULT: '#8E9196'
 				},
@@ -120,6 +132,7 @@ export default {
 				'fade-in': 'fade-in 0.3s ease-out'
 			},
 			backgroundImage: {
+				'beige-green-gradient': 'linear-gradient(135deg, #F1F0FB 0%, #F2FCE2 100%)',
 				'peach-gradient': 'linear-gradient(135deg, #FDE1D3 0%, #E2D1C3 100%)',
 				'beige-gradient': 'linear-gradient(109.6deg, rgba(223,234,247,1) 11.2%, rgba(244,248,252,1) 91.1%)'
 			}
