@@ -17,7 +17,7 @@ export interface ProjectDetails {
   completionPercentage: number;
   startDate: Date;
   endDate?: Date;
-  dealerCover?: string;
+  dealerCover: string; // Making this required
   teamMembers: TeamMember[];
   isPrime?: boolean;
 }

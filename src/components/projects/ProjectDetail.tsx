@@ -4,25 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { CalendarIcon, ClockIcon, Users2Icon, BadgeCheckIcon, XIcon } from "lucide-react";
-
-export interface ProjectDetails {
-  id: string;
-  title: string;
-  client: string;
-  description: string;
-  status: "Completed" | "In Progress" | "On Hold";
-  completionPercentage: number;
-  startDate: Date;
-  endDate?: Date;
-  timeToComplete?: string;
-  dealerCover: string;
-  teamMembers: {
-    id: string;
-    name: string;
-    role: string;
-    avatar: string;
-  }[];
-}
+import { ProjectDetails } from "@/types/projects";
 
 interface ProjectDetailProps {
   project: ProjectDetails;
@@ -37,14 +19,14 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
           <DialogTitle className="text-xl font-semibold flex items-center">
             {project.title}
             <Badge 
-              className="ml-3" 
-              variant={
+              className={`ml-3 ${
                 project.status === "Completed" 
-                  ? "success" 
+                  ? "bg-green-100 text-green-700" 
                   : project.status === "In Progress" 
-                    ? "default" 
-                    : "destructive"
-              }
+                    ? "bg-blue-100 text-blue-700" 
+                    : "bg-amber-100 text-amber-700"
+              }`} 
+              variant="outline"
             >
               {project.status}
             </Badge>
@@ -60,7 +42,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
         <div className="mt-4">
           <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
             <img 
-              src={project.dealerCover} 
+              src={project.dealerCover || "/placeholder.svg"} 
               alt={project.client} 
               className="w-full h-full object-cover"
             />
@@ -89,17 +71,20 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
               </div>
             )}
             
-            {project.timeToComplete && (
-              <div className="flex items-center">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                  <ClockIcon className="h-5 w-5 text-blue-600" />
-                </div>
-                <div className="ml-3">
-                  <p className="text-sm text-gray-500">Time to Complete</p>
-                  <p className="font-medium">{project.timeToComplete}</p>
-                </div>
+            {/* Conditionally display timeToComplete if available */}
+            <div className="flex items-center">
+              <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                <ClockIcon className="h-5 w-5 text-blue-600" />
               </div>
-            )}
+              <div className="ml-3">
+                <p className="text-sm text-gray-500">Time to Complete</p>
+                <p className="font-medium">
+                  {project.endDate && project.startDate 
+                    ? `${Math.round((project.endDate.getTime() - project.startDate.getTime()) / (1000 * 60 * 60 * 24))} days`
+                    : "Not specified"}
+                </p>
+              </div>
+            </div>
           </div>
           
           <div className="mb-6">
