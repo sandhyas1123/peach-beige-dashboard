@@ -20,14 +20,14 @@ export default {
     extend: {
       colors: {
         beige: {
-          DEFAULT: '#F1F0FB',
-          light: '#F9F8FC',
-          dark: '#E2D1C3'
+          DEFAULT: 'hsl(35, 20%, 95%)',
+          light: 'hsl(35, 20%, 98%)',
+          dark: 'hsl(35, 20%, 90%)'
         },
         green: {
-          DEFAULT: '#396419',
-          light: '#5DA626',
-          accent: '#F2FCE2'
+          DEFAULT: 'hsl(145, 60%, 10%)',
+          light: 'hsl(145, 60%, 30%)',
+          accent: 'hsl(145, 60%, 20%)'
         },
         primary: {
           DEFAULT: 'hsl(145 60% 10%)',

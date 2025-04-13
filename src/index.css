@@ -4,15 +4,8 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 35 20% 95%;   /* Beige */
-    --foreground: 145 60% 10%;  /* Dark Green */
-    --card: 35 20% 95%;         /* Beige */
-    --card-foreground: 145 60% 10%; /* Dark Green */
-    --primary: 145 60% 10%;     /* Dark Green */
-    --primary-foreground: 35 20% 95%; /* Beige */
-    --secondary: 145 10% 80%;   /* Light Green */
-    --secondary-foreground: 145 60% 10%; /* Dark Green */
+  body {
+    @apply bg-beige text-green antialiased;
   }
 }
 
@@ -23,11 +16,5 @@
   
   .hover-3d {
     @apply transition-all duration-300 hover:shadow-3d-hover hover:transform hover:-translate-y-1;
-  }
-}
-
-@layer base {
-  body {
-    @apply bg-beige text-green-DEFAULT antialiased;
   }
 }
